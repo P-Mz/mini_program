@@ -1,0 +1,5 @@
+{
+    "usingComponents": {
+        "index-selector": "../../components/index_selector/index_selector"
+    }
+}

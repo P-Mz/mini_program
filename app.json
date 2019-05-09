@@ -1,0 +1,12 @@
+{
+    "pages": [
+        "pages/index_selector/index_selector"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
+}

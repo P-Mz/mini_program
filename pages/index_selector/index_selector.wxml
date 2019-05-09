@@ -1,0 +1,12 @@
+
+
+<scroll-view
+    scroll-y
+    scroll-into-view="words-{{wordsIndex}}"
+>
+
+</scroll-view>
+
+<index-selector
+    bindchange="__change"
+/>

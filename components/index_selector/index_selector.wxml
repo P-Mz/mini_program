@@ -1,0 +1,15 @@
+
+<view class="words-wrap" 
+    catch:touchstart="handleTouchStart"
+    catch:touchmove="handleTouchMove"
+    catch:touchend="handleTouchEnd"
+    catch:touchcancel="handleTouchCancel">
+    <view class="words-item"
+        wx:for="{{wordsArr}}"
+        wx:key="index"
+        data-index="{{index}}">
+        {{item}}
+    </view>
+</view>
+
+<view class="words-action-top" wx:if="{{showActionWords}}">{{wordsArr[wordsAction]}}</view>
