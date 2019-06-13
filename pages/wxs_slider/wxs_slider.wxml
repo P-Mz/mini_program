@@ -1,0 +1,67 @@
+
+<!-- 
+    注意: data-className属性的值要和 class里面的某一项对应, 还要是唯一的class
+-->
+<view class="wrap">
+   <view class="item item0" 
+        bindtouchstart="{{slide.touchStart}}" 
+        bindtouchmove="{{slide.touchMove}}"
+        data-className="item0"
+    ></view>
+   <view class="item item1" 
+        bindtouchstart="{{slide.touchStart}}" 
+        bindtouchmove="{{slide.touchMove}}"
+        data-className="item1"
+    ></view>
+   <view class="item item2" 
+        bindtouchstart="{{slide.touchStart}}" 
+        bindtouchmove="{{slide.touchMove}}"
+        data-className="item2"
+    ></view>
+   <view class="item item3" 
+        bindtouchstart="{{slide.touchStart}}" 
+        bindtouchmove="{{slide.touchMove}}"
+        data-className="item3"
+    ></view>
+   <view class="item item4" 
+        bindtouchstart="{{slide.touchStart}}" 
+        bindtouchmove="{{slide.touchMove}}"
+        data-className="item4"
+    ></view>
+</view>
+
+
+<wxs module="slide">
+    var startX = 0;
+    var MoveX = 0;
+    var className = '';
+
+    var touchStart = function (e, ins) {
+        newClassName = '.'+e.currentTarget.dataset.classname;
+        
+        // 将上一个 滑块位置归0
+        if (className && className !== newClassName) {
+            ins.selectComponent(className).setStyle({
+                transform: 'translateX(0rpx)',
+                transition: 'transform 0.6s ease'
+            });
+            MoveX = 0;
+        }
+
+        startX = e.changedTouches[0].pageX - MoveX;
+        className = newClassName;
+    }
+
+    var touchMove = function (e, ins) {
+        var x = e.changedTouches[0].pageX;
+        MoveX = x - startX;
+        ins.selectComponent(className).setStyle({
+            transform: 'translateX(' + MoveX + 'rpx)'
+        });
+    }
+
+    module.exports = {
+        touchStart: touchStart,
+        touchMove: touchMove
+    }
+</wxs>

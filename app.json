@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/wxs_slider/wxs_slider",
         "pages/index_selector/index_selector"
     ],
     "window": {
